@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Ciclomatic - Painel de Prova">
+    <meta name="author" content="UNIFEOB">
+    <link rel="shortcut icon" type="image/png" href="assets/favicon.png"/>
+
+    <title>Ciclomatic - Painel de Prova</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="assets/css/bootstrap.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="assets/css/sb-admin.css" rel="stylesheet">
+
+    <!-- Morris Charts CSS -->
+    <link href="assets/css/plugins/morris.css" rel="stylesheet">
+
+    <!-- Custom Fonts -->
+    <link href="assets/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.assets/js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="wrapper">
+
+        <!-- Navigation -->
+        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html"><img src="assets/logo_white.png" class="logo_top"> CICLOMATIC beta v0.1</a>
+            </div>
+            <!-- Top Menu Items -->
+            <ul class="nav navbar-right top-nav">
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown"><i class="fa fa-user"></i> Administrador <b class="caret"></b></a>
+                    <ul class="dropdown-menu">
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-user"></i> Meus Dados</a>
+                        </li>
+                        <li>
+                            <a href="#"><i class="fa fa-fw fa-power-off"></i> Sair</a>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+            <!-- Sidebar Menu Items - These collapse to the responsive navigation menu on small screens -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav side-nav">
+                    <li class="active">
+                        <a href="index.html"><i class="fa fa-fw fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="charts.html"><i class="fa fa-fw fa-bicycle"></i> Ciclistas</a>
+                    </li>
+                    <li>
+                        <a href="tables.html"><i class="fa fa-fw fa-bullhorn"></i> Provas</a>
+                    </li>
+                    <li>
+                        <a href="forms.html"><i class="fa fa-fw fa-edit"></i> Inscrições</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-elements.html"><i class="fa fa-fw fa-file-text-o"></i> Mensagens</a>
+                    </li>
+                    <li>
+                        <a href="bootstrap-grid.html"><i class="fa fa-fw fa-database"></i> Dados</a>
+                    </li>
+                    <li>
+                        <a href="blank-page.html"><i class="fa fa-fw fa-thumb-tack"></i> Checkpoints</a>
+                    </li>
+                    <li><p class="copyrights">&reg; UNIFEOB - ADS 2015</p></li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </nav>
+
+        <div>
+			
+			<ul class="nav nav-pills">
+			  <li class="active"><a data-toggle="tab" href="#home">Mapa Tempo-Real</a></li>
+			  <li><a data-toggle="tab" href="#menu1">Dados</a></li>
+			  <li><a data-toggle="tab" href="#menu2">Mensagens</a></li>
+			  <li><a data-toggle="tab" href="#menu3">Checkpoints</a></li>
+			</ul>
+			
+			<div class="tab-content">
+			  <div id="home" class="tab-pane fade in active">
+			    <div id="map"></div>
+			  </div>
+			  <div id="menu1" class="tab-pane fade">
+			    <h3>Menu 1</h3>
+			    <p>Some content in menu 1.</p>
+			  </div>
+			  <div id="menu2" class="tab-pane fade">
+			    <h3>Menu 2</h3>
+			    <p>Some content in menu 2.</p>
+			  </div>
+			  <div id="menu3" class="tab-pane fade">
+			    <h3>Menu 3</h3>
+			    <p>Some content in menu 3.</p>
+			  </div>
+			</div>
+			
+            
+            <!-- /.container-fluid -->
+
+        </div>
+        <!-- /#page-wrapper -->
+
+    </div>
+    <!-- /#wrapper -->
+    
+    
+    <script>
+
+// This example creates a 2-pixel-wide red polyline showing the path of William
+// Kingsford Smith's first trans-Pacific flight between Oakland, CA, and
+// Brisbane, Australia.
+
+function initMap() {
+  var map = new google.maps.Map(document.getElementById('map'), {
+    zoom: 18,
+    center: {lat: -21.972000, lng: -46.7720442},
+    mapTypeId: google.maps.MapTypeId.SATELLITE
+  });
+
+  var flightPlanCoordinates = [
+    {lat: 37.772, lng: -122.214},
+    {lat: 21.291, lng: -157.821},
+    {lat: -18.142, lng: 178.431},
+    {lat: -27.467, lng: 153.027}
+  ];
+  var flightPath = new google.maps.Polyline({
+    path: flightPlanCoordinates,
+    geodesic: true,
+    strokeColor: '#FF0000',
+    strokeOpacity: 1.0,
+    strokeWeight: 2
+  });
+
+  flightPath.setMap(map);
+}
+
+    </script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDnHZBnaTphUHLT4ow884Cd24itv9x-D8Y&signed_in=true&callback=initMap"></script>
+
+    <!-- jQuery -->
+    <script src="assets/js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="assets/js/bootstrap.js"></script>
+
+    <!-- Morris Charts JavaScript -->
+    <script src="assets/js/plugins/morris/raphael.min.js"></script>
+    <script src="assets/js/plugins/morris/morris.min.js"></script>
+    <script src="assets/js/plugins/morris/morris-data.js"></script>
+
+</body>
+
+</html>
