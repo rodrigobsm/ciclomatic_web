@@ -38,8 +38,8 @@
                                 <tbody>
                                 	<?php foreach($provas as $prova): ?>
                                     <tr>
-                                        <td>Passeio Ciclístico</td>
-                                        <td>29/10/2015 às 07h00</td>
+                                        <td><?php echo $prova->nome; ?></td>
+                                        <td><?php echo date('d/m/Y H:i', strtotime($prova->tempo_inicio)); ?></td>
                                         <td>29/10/2015 às 12h00</td>
                                         <td>10,6 Km</td>
                                         <td style="width:1%; white-space: nowrap;">

@@ -31,8 +31,9 @@ class Provas extends CI_Controller {
 	public function index()
 	{
 		$data['provas'] = $this->db->get('provas')->result();
-		
-		$data['conteudo'] = $this->load->view('provas', $data['provas'], true);
-		$this->load->view('layout_base', $data);
+		$this->load->vars($data);
+		$data['conteudo'] = $this->load->view('provas', '', true);
+		$this->load->vars($data);
+		$this->load->view('layout_base', '');
 	}
 }

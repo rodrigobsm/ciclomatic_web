@@ -29,7 +29,10 @@ class Endpoint extends CI_Controller {
 		
 		$email = $this->input->post('username');
 		$senha = md5($this->input->post('password'));
-		
+
+		error_log('username => ' . $this->input->post('username'));
+		error_log('password => ' . $this->input->post('password'));
+
 		$ciclista = $this->db->get_where('ciclistas', array('email'=>$email, 'senha'=>$senha));
 
 		if ($ciclista->num_rows() > 0) {
@@ -57,24 +60,56 @@ class Endpoint extends CI_Controller {
 	public function dados() {
 		$this->fix_origin();
 		
-		$postdata = file_get_contents("php://input");
-		$dados = json_decode($postdata, true);
-		$dados['id_dado'] = NULL;
+		//$postdata = file_get_contents("php://input");
+		//$dados = json_decode($postdata, true);
+		//$dados['id_dado'] = NULL;
+
+		$dados = array(
+			'id_ciclista' => $this->input->post('id_ciclista'),
+			'id_prova' => $this->input->post('id_prova'),
+			'data_hora' => date("Y-m-d h:i:s"),
+			'lat' => $this->input->post('lat'),
+			'lon' => $this->input->post('lon'),
+			'altitude' => $this->input->post('altitude'),
+			'bpm' => $this->input->post('bpm'),
+			'corp_temperatura' => $this->input->post('corp_temperatura'),
+			'giro_x' => $this->input->post('giro_x'),
+			'giro_y' => $this->input->post('giro_y'),
+			'giro_z' => $this->input->post('giro_z'),
+			'acel_x' => $this->input->post('acel_x'),
+			'acel_y' => $this->input->post('acel_y'),
+			'acel_z' => $this->input->post('acel_z'),
+			'direcao' => $this->input->post('direcao'),
+			'ar_temperatura' => $this->input->post('ar_temperatura'),
+			'ar_umidade' => $this->input->post('ar_umidade'),
+			'ar_pressao' => $this->input->post('ar_pressao')
+		);
 		
 		$this->db->insert('dados', $dados);
 		
 		echo ($this->db->affected_rows() != 1) ? '0' : '1';
-		
 	}
 	
 	public function msg() {
 		
 		$this->fix_origin();
 		
-		$postdata = file_get_contents("php://input");
-		$dados = json_decode($postdata, true);
-		$dados['id_mensagem'] = NULL;
-		
+		//$postdata = file_get_contents("php://input");
+		//error_log('msg => ' . $postdata);
+
+		//$postdata = file_get_contents("php://input");
+		//$dados = json_decode($postdata, true);
+		//$dados['id_mensagem'] = NULL;
+		$dados = array(
+			'id_ciclista' => $this->input->post('id_ciclista'),
+			'id_prova' => $this->input->post('id_prova'),
+			'tipo' => $this->input->post('tipo'),
+			'data_hora' => date("Y-m-d h:i:s"),
+			'lat' => $this->input->post('lat'),
+			'lon' => $this->input->post('lon'),
+			'altitude' => $this->input->post('altitude')
+		);
+
 		$this->db->insert('mensagens', $dados);
 		
 		echo ($this->db->affected_rows() != 1) ? '0' : '1';
