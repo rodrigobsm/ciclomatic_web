@@ -1,0 +1,1 @@
+{"id_ciclista":"1","id_prova":"1","data_hora":"2015-10-24 01:05:56","lat":"-21.9677702","lon":"-46.7735371","altitude":"0","bpm":"0","corp_temperatura":"56.12","giro_x":"0","giro_y":"0","giro_z":"0","acel_x":"0","acel_y":"0","acel_z":"0","direcao":"192.54","ar_temperatura":"31.30","ar_umidade":"0","ar_pressao":"93058.00"}

@@ -64,6 +64,7 @@ class Endpoint extends CI_Controller {
 		//$dados = json_decode($postdata, true);
 		//$dados['id_dado'] = NULL;
 
+
 		$dados = array(
 			'id_ciclista' => $this->input->post('id_ciclista'),
 			'id_prova' => $this->input->post('id_prova'),
@@ -84,6 +85,8 @@ class Endpoint extends CI_Controller {
 			'ar_umidade' => $this->input->post('ar_umidade'),
 			'ar_pressao' => $this->input->post('ar_pressao')
 		);
+
+		file_put_contents('saida.txt', json_encode($dados));
 		
 		$this->db->insert('dados', $dados);
 		
