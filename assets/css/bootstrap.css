@@ -1088,7 +1088,7 @@ html {
 body {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 14px;
-  line-height: 1.42857143;
+  line-height: 17px;
   color: #333;
   background-color: #fff;
 }
@@ -3892,7 +3892,6 @@ select[multiple].input-group-sm > .input-group-btn > .btn {
 .nav > li > a:focus {
   text-decoration: none;
   color: #fff;
-  background-color: #378ACE;
 }
 .nav > li.disabled > a {
   color: #777;
@@ -4845,6 +4844,7 @@ a.badge:focus {
 
 .nav-pills {
 	background: #284E7F;
+	border-bottom: 3px solid #337ab7;
 }
 
 .nav-pills a {

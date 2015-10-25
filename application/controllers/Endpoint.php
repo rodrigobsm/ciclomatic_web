@@ -1,6 +1,14 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
+
+	function ob_file_callback($buffer)
+	{
+  		global $ob_file;
+  		fwrite($ob_file,$buffer);	
+	}
+	
+	
 class Endpoint extends CI_Controller {
 
 	/**
@@ -63,6 +71,8 @@ class Endpoint extends CI_Controller {
 		//$postdata = file_get_contents("php://input");
 		//$dados = json_decode($postdata, true);
 		//$dados['id_dado'] = NULL;
+		
+		file_put_contents("post.txt", json_encode($_POST));
 
 		$dados = array(
 			'id_ciclista' => $this->input->post('id_ciclista'),
@@ -85,10 +95,21 @@ class Endpoint extends CI_Controller {
 			'ar_pressao' => $this->input->post('ar_pressao')
 		);
 		
-		$this->db->insert('dados', $dados);
+		
+		file_put_contents("dado.txt", json_encode($dados), LOCK_EX|FILE_APPEND);
+		
+		ob_start();
+		
+		
+		echo $this->db->insert('dados', $dados);
+		
+		$contents = ob_get_flush();
+		file_put_contents('saida_msg.txt',$contents);
 		
 		echo ($this->db->affected_rows() != 1) ? '0' : '1';
 	}
+	
+
 	
 	public function msg() {
 		
@@ -109,7 +130,9 @@ class Endpoint extends CI_Controller {
 			'lon' => $this->input->post('lon'),
 			'altitude' => $this->input->post('altitude')
 		);
-
+		
+		file_put_contents('msg.txt', json_encode($dados));
+		
 		$this->db->insert('mensagens', $dados);
 		
 		echo ($this->db->affected_rows() != 1) ? '0' : '1';

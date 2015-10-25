@@ -302,7 +302,7 @@ ul.alert-dropdown {
 @media(max-width:768px) {
 	#map {
 		left: 0 !important;
-		top: 151px !important;
+		top: 191px !important;
 	}
 }
 
@@ -310,6 +310,112 @@ ul.alert-dropdown {
 	position: fixed !important;
 	left: 225px;
 	right: 0;
-	top: 101px;
+	top: 141px;
 	bottom: 0;
+}
+
+#map_toolbar {
+	background: #222;
+	padding: 0;
+	margin: 0;
+	display: block;
+	width: 39px;
+	width: 100%;
+	box-shadow: 0px 0px #000 rgba(0,0,0,0.4);
+	display: block;
+	height: 40px;
+	color: #ccc;
+}
+
+#map_toolbar label {
+	font-size: 12px;
+	margin-left: 10px;
+	margin-top: 7px;
+	font-weight: normal;
+}
+
+#map_toolbar input[type=text],
+#map_toolbar input[type=number]  {
+	color: #333;
+	border:none;
+	margin: 0px;
+	background: transparent;
+	color: #fff;
+	text-align: center;
+	font-weight: bold;
+	width: 30px;
+}
+
+#map_toolbar ul {
+	list-style: none;
+	margin: 0;
+	padding: 2px;
+	float: left;
+}
+
+#map_toolbar ul li {
+	float: left;	
+	margin-right: 2px;
+}
+
+#map_toolbar ul li.sep {
+	border-right: 1px #ccc solid;
+	width: 10px;
+}
+
+#map_toolbar ul li a {
+	display: block;
+	padding: 9px 16px;
+	background: #333;
+	color: #ccc;
+	text-decoration: none;
+	font-size: 12px;
+}
+
+#map_toolbar ul li a:hover {
+	background: #444;
+	color: #fff;
+}
+
+#loader {
+	float: right;
+	margin-right: 12px;
+	margin-top: 10px;
+}
+
+#loader p {
+	color: #ccc;
+	float: right;
+}
+
+#loader img {
+	float: right;
+	margin-left: 10px;
+}
+
+#loader-msg a {
+	color: #fff;
+}
+
+.balao-titulo {
+	background: #eee;
+	text-align: center;
+	font-weight: bold;
+	color: #4C7BBD;
+	text-transform: uppercase;
+}
+
+.balao-nome {
+	color: #4C7BBD;
+	font-size: 20px;
+	border-bottom: dotted 2px #4C7BBD;
+}
+
+.nome-prova {
+	float: right;
+	color: #fff;
+	margin-right: 15px;
+	line-height: 48px;
+	font-weight: bold;
+	font-size: 24px;
 }

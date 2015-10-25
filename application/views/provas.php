@@ -40,10 +40,10 @@
                                     <tr>
                                         <td><?php echo $prova->nome; ?></td>
                                         <td><?php echo date('d/m/Y H:i', strtotime($prova->tempo_inicio)); ?></td>
-                                        <td>29/10/2015 às 12h00</td>
+                                        <td><?php echo date('d/m/Y H:i', strtotime($prova->tempo_fim)); ?></td>
                                         <td>10,6 Km</td>
                                         <td style="width:1%; white-space: nowrap;">
-                                        	<a href="#" title="Editar" type="button" class="btn btn-xs btn-primary"><i class="fa fa-bullhorn"></i> Iniciar Prova</a>
+                                        	<a href="prova/<?php echo $prova->id_prova; ?>" title="Editar" type="button" class="btn btn-xs btn-primary"><i class="fa fa-bullhorn"></i> Iniciar Prova</a>
                                         	<a href="#" title="Editar" type="button" class="btn btn-xs btn-success"><i class="fa fa-edit"></i></a>
                                         	<a href="#" title="Excluir" type="button" class="btn btn-xs btn-danger"><i class="fa fa-trash-o"></i></a>
                                         </td>
